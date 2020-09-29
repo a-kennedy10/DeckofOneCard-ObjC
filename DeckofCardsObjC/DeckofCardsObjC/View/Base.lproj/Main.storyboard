@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Card View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DVMCardViewController" customModule="DeckofCardsObjC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GaA-7f-tUe">
+                                <rect key="frame" x="20.5" y="94.5" width="373" height="717"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfV-mp-oIk">
+                                        <rect key="frame" x="138.5" y="0.0" width="96.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KqJ-SV-1oI">
+                                        <rect key="frame" x="45.5" y="67" width="282" height="574"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="574" id="Wxn-h2-RCH"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbE-QH-yGD">
+                                        <rect key="frame" x="152.5" y="687" width="68" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Draw"/>
+                                        <connections>
+                                            <action selector="cardButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NxL-ZM-J1E"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="lbE-QH-yGD" firstAttribute="top" secondItem="KqJ-SV-1oI" secondAttribute="bottom" constant="46" id="Hsu-o4-dA0"/>
+                                    <constraint firstItem="KqJ-SV-1oI" firstAttribute="top" secondItem="GaA-7f-tUe" secondAttribute="top" constant="67" id="Tov-UW-XXo"/>
+                                    <constraint firstItem="KqJ-SV-1oI" firstAttribute="leading" secondItem="GaA-7f-tUe" secondAttribute="leading" constant="45.5" id="cpj-AQ-HhL"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GaA-7f-tUe" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="C8N-Vx-8qa"/>
+                            <constraint firstItem="GaA-7f-tUe" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="DMk-kg-pYi"/>
+                            <constraint firstItem="GaA-7f-tUe" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="IVl-uq-4cr"/>
+                            <constraint firstItem="GaA-7f-tUe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bMa-tf-Qzh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardImage" destination="KqJ-SV-1oI" id="qxg-Zh-RCS"/>
+                        <outlet property="suitAndValueLabel" destination="GfV-mp-oIk" id="7CV-63-boC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="79.6875"/>
+        </scene>
+    </scenes>
+</document>
