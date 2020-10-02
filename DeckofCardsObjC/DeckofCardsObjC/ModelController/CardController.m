@@ -32,21 +32,27 @@ static NSString * const drawEndpoint = @"draw";
             NSLog(@"There appears to be no data");
             return completion(nil);
         }
-        NSDictionary *topLevelDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-        
-        if (!topLevelDictionary)
-        {
-            NSLog(@"Error parsing the JSON: %@", error);
-            completion(nil);
-            return;
-        }
-        
+        NSDictionary *topLevelDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error: &error];
+            
+            if (!topLevelDictionary)
+            {
+                NSLog(@"Error parsing JSON: %@", error);
+                completion(nil);
+                return;
+            }
+            
+            NSArray *cardsArray = topLevelDictionary[@"cards"];
+            NSMutableArray *cardsDictArray = [NSMutableArray array];
+            for (NSDictionary *cardDictionary in cardsArray)
+            {
+                DVMCard *card = [[DVMCard alloc] initWithDictionary:cardDictionary];
+                [cardsDictArray addObject:card];
+            }
+         DVMCard *cardToReturn = cardsDictArray.firstObject;
+            completion(cardToReturn);
 
-        DVMCard *card = [[DVMCard alloc]
-                         initWithDictionary:topLevelDictionary];
-        completion(card);
-        
-    }] resume];
+            
+        }] resume];
     
 }
 
